@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class GrowroomapiConfig(AppConfig):
+class GrowRoomApiConfig(AppConfig):
     name = 'GrowRoomApi'
