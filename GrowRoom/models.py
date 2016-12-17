@@ -24,21 +24,21 @@ class Temperature (Measurement):
 
     @classmethod
     def read(cls):
-        # dht22.trigger()
+        dht22.trigger()
         temp_value = repr(dht22.temperature())
         date = timezone.now
         temp = cls(value=temp_value,date_m=date,type_m='t')
         return temp
 
 
-class Hygrometer (Measurement):
+class Humidity (Measurement):
     """Classe che identifica le misurazioni di tipo umidita"""
 
     @classmethod
-    def read(cls, title):
+    def read(cls):
         dht22.trigger()
-        hygro_value = repr(dht22.humidity())
+        humidity_value = repr(dht22.humidity())
         date = timezone.now
-        hygro = cls(value=hygro_value, date_m=date, type_m='h')
+        hygro = cls(value=humidity_value, date_m=date, type_m='h')
         return hygro
 

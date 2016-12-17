@@ -7,7 +7,7 @@ from . import views
 router = routers.DefaultRouter()
 
 router.register(r'measurements/temperatures',views.TemperatureViewSet)
-router.register(r'measurements/hygrometers',views.HygrometerViewSet)
+router.register(r'measurements/humidities',views.HumidityViewSet)
 router.register(r'users', views.UserViewSet)
 
 
