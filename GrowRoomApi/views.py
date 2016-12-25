@@ -12,24 +12,22 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class TemperatureViewSet(viewsets.ModelViewSet):
-    queryset = Measurement.objects.filter(type_m="t").order_by('-date_m')
-    serializer_class = serializers.MeasurementSerializer
+    queryset = Temperature.objects.all()
+    serializer_class = serializers.TemperatureSerializer
 
     @list_route(methods=['get'])
     def latest(self, request,pk=None):
-        #latest_temperature = Measurement.objects.filter(type_m="t").latest('date_m')
         latest_temperature = Temperature.read()
         serializer = self.get_serializer(latest_temperature)
         return Response(serializer.data)
 
 
 class HumidityViewSet(viewsets.ModelViewSet):
-    queryset = Measurement.objects.filter(type_m="h").order_by('-date_m')
-    serializer_class = serializers.MeasurementSerializer
+    queryset = Humidity.objects.all()
+    serializer_class = serializers.HumiditySerializer
 
     @list_route(methods=['get'])
     def latest(self, request,pk=None):
-        #latest_temperature = Measurement.objects.filter(type_m="t").latest('date_m')
         latest_humidity = Humidity.read()
         serializer = self.get_serializer(latest_humidity)
         return Response(serializer.data)
